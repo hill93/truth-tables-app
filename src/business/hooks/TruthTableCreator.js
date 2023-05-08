@@ -1,3 +1,5 @@
+import { useDeps } from "../context/DepsContext";
+
 const useTruthTableCreator = () => {
     //CENTRALISE REGEXS!!!!!
     const getOnlyLetters = metadata => {
@@ -40,6 +42,7 @@ const useTruthTableCreator = () => {
         create(stack, metadata){
             const letters = getOnlyLetters(metadata);
             const universeList = createUniverseList(letters);
+
             console.log(letters);
             console.log(universeList);
 
