@@ -4,9 +4,10 @@ import PropLogicParser from '../grammars/PropLogicParser.js';
 import { useDeps } from './context/DepsContext.js';
 
 const useTruthTableManager = () => {
-    const {useTruthTableMetadataCreator, useTruthStackCreator} = useDeps();
+    const {useTruthTableMetadataCreator, useTruthStackCreator, useTruthTableCreator} = useDeps();
     const {create : createMetadata} = useTruthTableMetadataCreator();
     const {create : createStack} = useTruthStackCreator();
+    const {create : createTable} = useTruthTableCreator();
 
     const emptyInputMsg = 'Please enter an argument or theory.'
     const errors = [emptyInputMsg];
@@ -53,6 +54,8 @@ const useTruthTableManager = () => {
             const tree = parseInput(input);
             const stack = createStack(tree);
             const metadata = createMetadata(tree, input);
+            createTable(stack, metadata);
+
             console.log(stack);
             console.log(metadata);
         }

@@ -3,7 +3,7 @@ import './App.css';
 import { useDeps } from './business/context/DepsContext';
 
 function App() {
-    const input = '~((A&B)=>(Cv(D<=>E)))';//'~((A&B)<=>~G)';//'(~A&~~B)'//'(~((A&B)<=>~G)=>~((A&B)<=>~G))';
+    const input = '~((B&A)=>(Cv(D<=>E)))';//'~((A&B)<=>~G)';//'(~A&~~B)'//'(~((A&B)<=>~G)=>~((A&B)<=>~G))';
 
     const {truthTableManager} = useDeps();
 
