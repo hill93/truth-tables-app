@@ -9,3 +9,5 @@ const negationTruthCalculator = () => {
         }
     }
 }
+
+export default negationTruthCalculator;

@@ -11,3 +11,5 @@ const sentenceTruthCalculator = () => {
         }
     }
 }
+
+export default sentenceTruthCalculator;

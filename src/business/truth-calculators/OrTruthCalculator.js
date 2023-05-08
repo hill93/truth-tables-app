@@ -18,3 +18,5 @@ const orTruthCalculator = () => {
         }
     }
 }
+
+export default orTruthCalculator;

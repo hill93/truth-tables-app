@@ -1,6 +1,8 @@
 import { useDeps } from "../context/DepsContext";
 
 const useTruthTableCreator = () => {
+    const {truthCalculators} = useDeps();
+
     //CENTRALISE REGEXS!!!!!
     const getOnlyLetters = metadata => {
         const result = metadata.filter(x => x.text.match(/^[A-Z]$/)).map(x => x.text);
@@ -45,7 +47,8 @@ const useTruthTableCreator = () => {
 
             console.log(letters);
             console.log(universeList);
-
+            
+            console.log(truthCalculators.find(x => x.canCalculate('.')));
         }
     }
 }

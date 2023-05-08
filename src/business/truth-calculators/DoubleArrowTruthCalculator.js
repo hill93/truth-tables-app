@@ -19,3 +19,5 @@ const doubleArrowTruthCalculator = () => {
         }
     }
 }
+
+export default doubleArrowTruthCalculator;

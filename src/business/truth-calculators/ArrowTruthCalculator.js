@@ -18,3 +18,5 @@ const arrowTruthCalculator = () => {
         }
     }
 }
+
+export default arrowTruthCalculator;

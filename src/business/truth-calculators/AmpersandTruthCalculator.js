@@ -1,7 +1,7 @@
 const ampersandTruthCalculator = () => {
     return {
         canCalculate(truthValuablePart){
-            return truthValuablePart === 'v';
+            return truthValuablePart === '&';
         },
 
         calculate(position, truthStack, universeList) {
@@ -18,3 +18,5 @@ const ampersandTruthCalculator = () => {
         }
     }
 }
+
+export default ampersandTruthCalculator;
