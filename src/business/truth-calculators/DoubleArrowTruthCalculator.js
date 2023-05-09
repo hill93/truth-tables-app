@@ -1,4 +1,4 @@
-const doubleArrowTruthCalculator = () => {
+const useDoubleArrowTruthCalculator = () => {
     return {
         canCalculate(truthValuablePart){
             return truthValuablePart === '<=>';
@@ -20,4 +20,4 @@ const doubleArrowTruthCalculator = () => {
     }
 }
 
-export default doubleArrowTruthCalculator;
+export default useDoubleArrowTruthCalculator;

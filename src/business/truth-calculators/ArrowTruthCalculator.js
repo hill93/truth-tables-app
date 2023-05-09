@@ -1,4 +1,9 @@
-const arrowTruthCalculator = () => {
+import { useDeps } from "../context/DepsContext";
+
+const useArrowTruthCalculator = () => {
+    // const {sidesGetter} = useDeps();
+    // const {get: getSides} = sidesGetter();
+
     return {
         canCalculate(truthValuablePart){
             return truthValuablePart === '=>';
@@ -13,10 +18,13 @@ const arrowTruthCalculator = () => {
 
             truthStack.find(x => x === leftRowToProcess).processed = true;
             truthStack.find(x => x === rightRowToProcess).processed = true;
+
+            //const sides = getSides(truthStack, position, depth);
         
             return (!leftRowToProcess.truthValue || rightRowToProcess.truthValue);
+            //return (!sides.left || sides.right);
         }
     }
 }
 
-export default arrowTruthCalculator;
+export default useArrowTruthCalculator;

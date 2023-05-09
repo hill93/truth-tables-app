@@ -7,7 +7,7 @@ const sentenceTruthCalculator = () => {
         calculate(position, truthStack, universe) {
             const column = truthStack[position].text;
 
-            return universe.find(x => x.header == column).truthValue;
+            return universe.find(x => x.header === column).truthValue;
         }
     }
 }

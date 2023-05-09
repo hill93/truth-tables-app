@@ -9,6 +9,7 @@ import arrowTruthCalculator from "../truth-calculators/ArrowTruthCalculator";
 import doubleArrowTruthCalculator from "../truth-calculators/DoubleArrowTruthCalculator";
 import orTruthCalculator from "../truth-calculators/OrTruthCalculator";
 import negationTruthCalculator from "../truth-calculators/NegationTruthCalculator";
+import sidesGetter from "../truth-calculators/SidesGetter";
 
 export const defaultDeps = {
     truthTableManager: truthTableManager,
@@ -23,5 +24,6 @@ export const defaultDeps = {
         doubleArrowTruthCalculator(),
         orTruthCalculator(),
         negationTruthCalculator()
-    ]
+    ],
+    sidesGetter: sidesGetter
 }

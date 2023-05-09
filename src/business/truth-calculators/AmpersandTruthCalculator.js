@@ -1,4 +1,4 @@
-const ampersandTruthCalculator = () => {
+const useAmpersandTruthCalculator = () => {
     return {
         canCalculate(truthValuablePart){
             return truthValuablePart === '&';
@@ -19,4 +19,4 @@ const ampersandTruthCalculator = () => {
     }
 }
 
-export default ampersandTruthCalculator;
+export default useAmpersandTruthCalculator;
