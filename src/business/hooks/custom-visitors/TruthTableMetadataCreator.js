@@ -1,35 +1,12 @@
-/*
+import { defaultDeps } from "../../context/Dependencies";
 
-Use listener (see node project), which gives you bottom up
-If unprocessed L exists with same depth, it's R, otherwise L
-If new depth = old depth - 1 then evaluate parent, find children (the unprocessed nodes with depth = old depth) set children to processed
-
-~((A&B)=>(Cv(D<=>E)))
-
-5:A L (Processed)
-5:B R (Processed)
-4:& L (4 = 5 - 1) (Processed)
-5:C L (Processed)
-6:D L (Processed)
-6:E R (Processed)
-5:<=> R (5 = 6 - 1) (Processed)
-4:v R (Processed)
-3:=> L (3 = 4 - 1) (Processed)
-2:~ L (2 = 3 - 1) (Processed)
-
-Keep below but for truth table column generation (remove other parts)
-
-*/
-
-import { useDeps } from "../../context/DepsContext";
-
-const useTruthTableMetadataCreator = () => {
+const useTruthTableMetadataCreator = services => {
     let tableStr = '';
     let depth = 0;
     let visitedTree = [];
     let order = 1;
 
-    const{useTruthValuablePartHelper} = useDeps();
+    const{useTruthValuablePartHelper} = services || defaultDeps;
     const { extractTruthValuablePart, 
         endsWithNonConnectiveTruthValuablePart, 
         endsWithConnective

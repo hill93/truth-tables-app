@@ -1,10 +1,13 @@
 import { InputStream, CommonTokenStream, ParseTreeWalker } from 'antlr4';
 import PropLogicLexer from '../grammars/PropLogicLexer.js';
 import PropLogicParser from '../grammars/PropLogicParser.js';
-import { useDeps } from './context/DepsContext.js';
+import { defaultDeps } from './context/Dependencies.js';
 
-const useTruthTableManager = () => {
-    const {useTruthTableMetadataCreator, useTruthStackCreator, useTruthTableCreator} = useDeps();
+const useTruthTableManager = services => {
+    const { useTruthTableMetadataCreator, 
+        useTruthStackCreator, 
+        useTruthTableCreator
+    } = services || defaultDeps;
     const {create : createMetadata} = useTruthTableMetadataCreator();
     const {create : createStack} = useTruthStackCreator();
     const {create : createTable} = useTruthTableCreator();

@@ -1,11 +1,15 @@
 import logo from './logo.svg';
 import './App.css';
-import { useDeps } from './business/context/DepsContext';
+import { defaultDeps } from './business/context/Dependencies';
 
-function App() {
+const App = services => {
     const input = '~((B&A)=>(Cv(D<=>E)))';//'~((A&B)<=>~G)';//'(~A&~~B)'//'(~((A&B)<=>~G)=>~((A&B)<=>~G))';
 
-    const {truthTableManager} = useDeps();
+    console.log(services);
+
+    const {truthTableManager} =  defaultDeps;
+
+    console.log(truthTableManager);
 
     const {getTruthTable, printErrors} = truthTableManager();
 

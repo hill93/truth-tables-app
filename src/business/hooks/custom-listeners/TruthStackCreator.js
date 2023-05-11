@@ -1,11 +1,11 @@
 import { ParseTreeWalker } from "antlr4";
 import PropLogicListener from "../../../grammars/PropLogicListener";
-import { useDeps } from "../../context/DepsContext";
+import { defaultDeps } from "../../context/Dependencies";
 
-const useTruthStackCreator = () => {
+const useTruthStackCreator = services => {
     const truthStack = [];
 
-    const {useTruthValuablePartHelper} = useDeps();
+    const {useTruthValuablePartHelper} = services || defaultDeps;
     const {extractTruthValuablePart} = useTruthValuablePartHelper();
 
     class TruthStackListener extends PropLogicListener {
