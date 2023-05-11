@@ -10,6 +10,8 @@ import doubleArrowTruthCalculator from "../truth-calculators/DoubleArrowTruthCal
 import orTruthCalculator from "../truth-calculators/OrTruthCalculator";
 import negationTruthCalculator from "../truth-calculators/NegationTruthCalculator";
 import sidesGetter from "../truth-calculators/SidesGetter";
+import lettersGetter from "../helpers/LettersGetter";
+import truthTableHelper from "../helpers/TruthTableHelper";
 
 export const defaultDeps = {
     truthTableManager: truthTableManager,
@@ -18,12 +20,14 @@ export const defaultDeps = {
     useTruthValuablePartHelper: useTruthValuablePartHelper,
     useTruthTableCreator: useTruthTableCreator,
     truthCalculators: [
-        sentenceTruthCalculator(),
-        ampersandTruthCalculator(),
-        arrowTruthCalculator(),
-        doubleArrowTruthCalculator(),
-        orTruthCalculator(),
-        negationTruthCalculator()
+        sentenceTruthCalculator,
+        ampersandTruthCalculator,
+        arrowTruthCalculator,
+        doubleArrowTruthCalculator,
+        orTruthCalculator,
+        negationTruthCalculator
     ],
-    sidesGetter: sidesGetter
+    sidesGetter: sidesGetter,
+    lettersGetter: lettersGetter,
+    truthTableHelper: truthTableHelper
 }
