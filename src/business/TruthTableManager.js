@@ -1,4 +1,4 @@
-import { InputStream, CommonTokenStream, ParseTreeWalker } from 'antlr4';
+import { InputStream, CommonTokenStream } from 'antlr4';
 import PropLogicLexer from '../grammars/PropLogicLexer.js';
 import PropLogicParser from '../grammars/PropLogicParser.js';
 import { defaultDeps } from './context/Dependencies.js';

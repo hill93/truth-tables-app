@@ -10,7 +10,7 @@ const useTruthStackCreator = services => {
 
     class TruthStackListener extends PropLogicListener {
         exitExpr(ctx){
-            let leftSide = truthStack.find(x => x.depth == ctx.depth() && x.side === 'L' && !x.partnered);
+            let leftSide = truthStack.find(x => x.depth === ctx.depth() && x.side === 'L' && !x.partnered);
             if (leftSide){
                 leftSide.partnered = true;
             }

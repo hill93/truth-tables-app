@@ -3,7 +3,7 @@ const lettersGetter = () => {
         getLetters(metadata){
             const result = metadata.filter(x => x.text.match(/^[A-Z]$/)).map(x => x.text);
 
-            return [... new Set(result.sort())];
+            return [...new Set(result.sort())];
         }
     }
 }
