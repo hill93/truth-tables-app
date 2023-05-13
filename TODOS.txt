@@ -1,3 +1,4 @@
 Change all files that were previously hooks to normal function convention (drop "use", move from hooks folder)
-Add tests
+More functions to extract: parser, parser/lexer error function
+Add tests, remove console logs when happy with tests
 Add UI
