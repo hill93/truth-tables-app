@@ -5,13 +5,9 @@ import { defaultDeps } from './business/context/Dependencies';
 const App = services => {
     const input = '~((B&A)=>(Cv(D<=>E)))';//'~((A&B)<=>~G)';//'(~A&~~B)'//'(~((A&B)<=>~G)=>~((A&B)<=>~G))';
 
-    console.log(services);
+    const {truthTableManager = defaultDeps.truthTableManager} =  services;
 
-    const {truthTableManager} =  defaultDeps;
-
-    console.log(truthTableManager);
-
-    const {getTruthTable, printErrors} = truthTableManager();
+    const {getTruthTable, printErrors} = truthTableManager({});
 
     getTruthTable(input);
     printErrors();

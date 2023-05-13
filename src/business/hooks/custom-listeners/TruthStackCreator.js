@@ -5,7 +5,7 @@ import { defaultDeps } from "../../context/Dependencies";
 const useTruthStackCreator = services => {
     const truthStack = [];
 
-    const {useTruthValuablePartHelper} = services || defaultDeps;
+    const {useTruthValuablePartHelper = defaultDeps.useTruthValuablePartHelper} = services;
     const {extractTruthValuablePart} = useTruthValuablePartHelper();
 
     class TruthStackListener extends PropLogicListener {

@@ -1,9 +1,11 @@
 import { defaultDeps } from "../context/Dependencies";
 
-const truthTableHelper = (services) => {
-    const{ lettersGetter, truthCalculators } = services || defaultDeps;
+const truthTableHelper = services => {
+    const{ lettersGetter = defaultDeps.lettersGetter, 
+        truthCalculators = defaultDeps.truthCalculators } = services;
+
     const{ getLetters } = lettersGetter();
-    const calculators = truthCalculators.map(x => x());
+    const calculators = truthCalculators.map(x => x({}));
 
     const cleanTruthStack = truthStack => {
         truthStack.forEach(x => {

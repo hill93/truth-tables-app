@@ -1,7 +1,7 @@
 import { defaultDeps } from "../context/Dependencies";
 
 const useArrowTruthCalculator = services => {
-    const {sidesGetter} = services || defaultDeps;
+    const {sidesGetter = defaultDeps.sidesGetter} = services;
     const {get: getSides} = sidesGetter();
 
     return {

@@ -6,7 +6,7 @@ const useTruthTableMetadataCreator = services => {
     let visitedTree = [];
     let order = 1;
 
-    const{useTruthValuablePartHelper} = services || defaultDeps;
+    const{useTruthValuablePartHelper = defaultDeps.useTruthValuablePartHelper} = services;
     const { extractTruthValuablePart, 
         endsWithNonConnectiveTruthValuablePart, 
         endsWithConnective

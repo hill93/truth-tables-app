@@ -4,13 +4,14 @@ import PropLogicParser from '../grammars/PropLogicParser.js';
 import { defaultDeps } from './context/Dependencies.js';
 
 const useTruthTableManager = services => {
-    const { useTruthTableMetadataCreator, 
-        useTruthStackCreator, 
-        useTruthTableCreator
-    } = services || defaultDeps;
-    const {create : createMetadata} = useTruthTableMetadataCreator();
-    const {create : createStack} = useTruthStackCreator();
-    const {create : createTable} = useTruthTableCreator();
+    const { useTruthTableMetadataCreator = defaultDeps.useTruthTableMetadataCreator, 
+        useTruthStackCreator = defaultDeps.useTruthStackCreator, 
+        useTruthTableCreator = defaultDeps.useTruthTableCreator
+    } = services;
+
+    const {create : createMetadata} = useTruthTableMetadataCreator({});
+    const {create : createStack} = useTruthStackCreator({});
+    const {create : createTable} = useTruthTableCreator({});
 
     const emptyInputMsg = 'Please enter an argument or theory.'
     const errors = [emptyInputMsg];
