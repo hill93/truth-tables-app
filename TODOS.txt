@@ -1,4 +1,5 @@
 Change all files that were previously hooks to normal function convention (drop "use", move from hooks folder)
 More functions to extract: parser, parser/lexer error function
 Add tests, remove console logs when happy with tests
+IT CURRENTLY CRACKS ON WITH TT CREATION DESPITE ERRORS - STOP IT
 Add UI
