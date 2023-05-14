@@ -1,12 +1,14 @@
+import SYMBOLS from "../constants/TokenConstants";
 import { defaultDeps } from "../context/Dependencies";
 
-const useAmpersandTruthCalculator = services => {
-    const {sidesGetter = defaultDeps.sidesGetter} = services;
+const ampersandTruthCalculator = services => {
+    const {sidesGetter = defaultDeps.sidesGetter,
+        symbols = SYMBOLS} = services;
     const {get: getSides} = sidesGetter();
 
     return {
         canCalculate(truthValuablePart){
-            return truthValuablePart === '&';
+            return truthValuablePart === symbols.ampersand;
         },
 
         calculate(position, truthStack, universeList) {
@@ -19,4 +21,4 @@ const useAmpersandTruthCalculator = services => {
     }
 }
 
-export default useAmpersandTruthCalculator;
+export default ampersandTruthCalculator;

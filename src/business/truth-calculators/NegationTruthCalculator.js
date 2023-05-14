@@ -1,7 +1,11 @@
-const negationTruthCalculator = () => {
+import SYMBOLS from "../constants/TokenConstants";
+
+const negationTruthCalculator = services => {
+    const {symbols = SYMBOLS} = services;
+
     return {
         canCalculate(truthValuablePart){
-            return truthValuablePart === '~';
+            return truthValuablePart === symbols.negation;
         },
 
         calculate(position, truthStack, universeList) {

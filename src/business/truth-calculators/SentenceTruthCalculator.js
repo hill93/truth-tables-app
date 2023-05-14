@@ -1,7 +1,11 @@
-const sentenceTruthCalculator = () => {
+import SYMBOLS from "../constants/TokenConstants";
+
+const sentenceTruthCalculator = services => {
+    const {symbols = SYMBOLS} = services;
+
     return {
         canCalculate(truthValuablePart){
-            return  new RegExp('^[A-Z]$').test(truthValuablePart);
+            return  new RegExp(`^[${symbols.sentence}]$`).test(truthValuablePart);
         },
 
         calculate(position, truthStack, universe) {

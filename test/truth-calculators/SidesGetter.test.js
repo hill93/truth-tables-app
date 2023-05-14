@@ -1,5 +1,6 @@
 import sidesGetter from "../../src/business/truth-calculators/SidesGetter";
 
+//npm test -- -t 'expected sides are got'
 test('expected sides are got', () => {
     const { get } = sidesGetter();
 
