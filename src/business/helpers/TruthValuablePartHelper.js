@@ -11,8 +11,8 @@ const truthValuablePartHelper = services => {
 
     return {
         extractTruthValuablePart(ctx){
-            return ctx.getText().match(`^[${sentence}]$`) ?? 
-                 ctx.children[0]?.getText() === negation ? ctx.children[0].getText()
+            return ctx.getText().match(`^[${sentence}]$`) ? ctx.getText()
+                 : ctx.children[0]?.getText() === negation ? ctx.children[0]?.getText()
                  : ctx.children[2]?.getText().match(`^(${doubleArrow}|${connectiveRegex})$`) ? ctx.children[2].getText() :
                 '';
         },
