@@ -1,12 +1,14 @@
+import SYMBOLS from "../constants/TokenConstants";
 import { defaultDeps } from "../context/Dependencies";
 
-const useOrTruthCalculator = services => {
-    const {sidesGetter = defaultDeps.sidesGetter} = services;
+const orTruthCalculator = services => {
+    const {sidesGetter = defaultDeps.sidesGetter,
+        symbols = SYMBOLS} = services;
     const {get: getSides} = sidesGetter();
 
     return {
         canCalculate(truthValuablePart){
-            return truthValuablePart === 'v';
+            return truthValuablePart === symbols.or;
         },
 
         calculate(position, truthStack, universeList) {
@@ -19,4 +21,4 @@ const useOrTruthCalculator = services => {
     }
 }
 
-export default useOrTruthCalculator;
+export default orTruthCalculator;

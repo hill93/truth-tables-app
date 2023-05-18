@@ -1,6 +1,6 @@
 import useTruthTableMetadataCreator from "../hooks/custom-visitors/TruthTableMetadataCreator";
 import useTruthStackCreator from "../hooks/custom-listeners/TruthStackCreator";
-import useTruthValuablePartHelper from "../hooks/TruthValuablePartHelper";
+import truthValuablePartHelper from "../helpers/TruthValuablePartHelper";
 import truthTableManager from "../TruthTableManager";
 import useTruthTableCreator from "../hooks/TruthTableCreator";
 import sentenceTruthCalculator from "../truth-calculators/SentenceTruthCalculator";
@@ -17,7 +17,7 @@ export const defaultDeps = {
     truthTableManager: truthTableManager,
     useTruthTableMetadataCreator: useTruthTableMetadataCreator,
     useTruthStackCreator: useTruthStackCreator,
-    useTruthValuablePartHelper: useTruthValuablePartHelper,
+    truthValuablePartHelper: truthValuablePartHelper,
     useTruthTableCreator: useTruthTableCreator,
     truthCalculators: [
         sentenceTruthCalculator,

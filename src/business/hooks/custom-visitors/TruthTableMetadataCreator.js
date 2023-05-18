@@ -6,11 +6,11 @@ const useTruthTableMetadataCreator = services => {
     let visitedTree = [];
     let order = 1;
 
-    const{useTruthValuablePartHelper = defaultDeps.useTruthValuablePartHelper} = services;
+    const{truthValuablePartHelper = defaultDeps.truthValuablePartHelper} = services;
     const { extractTruthValuablePart, 
         endsWithNonConnectiveTruthValuablePart, 
         endsWithConnective
-    } = useTruthValuablePartHelper();
+    } = truthValuablePartHelper({});
 
     const sortByColumnOrderDesc = (a, b) => {
         return b.orderOnTable - a.orderOnTable;

@@ -1,12 +1,14 @@
+import SYMBOLS from "../constants/TokenConstants";
 import { defaultDeps } from "../context/Dependencies";
 
-const useDoubleArrowTruthCalculator = services => {
-    const {sidesGetter = defaultDeps.sidesGetter} = services;
+const doubleArrowTruthCalculator = services => {
+    const {sidesGetter = defaultDeps.sidesGetter,
+        symbols = SYMBOLS} = services;
     const {get: getSides} = sidesGetter();
 
     return {
         canCalculate(truthValuablePart){
-            return truthValuablePart === '<=>';
+            return truthValuablePart === symbols.doubleArrow;
         },
 
         calculate(position, truthStack, universeList) {
@@ -20,4 +22,4 @@ const useDoubleArrowTruthCalculator = services => {
     }
 }
 
-export default useDoubleArrowTruthCalculator;
+export default doubleArrowTruthCalculator;
