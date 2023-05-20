@@ -1,6 +1,6 @@
 import { defaultDeps } from "../context/Dependencies";
 
-const useTruthTableCreator = services => {
+const truthTableCreator = services => {
     const{truthTableHelper = defaultDeps.truthTableHelper} = services;
 
     const{createUniverseList, createTable} = truthTableHelper({});
@@ -18,4 +18,4 @@ const useTruthTableCreator = services => {
     }
 }
 
-export default useTruthTableCreator;
+export default truthTableCreator;

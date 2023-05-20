@@ -1,8 +1,8 @@
-import useTruthTableMetadataCreator from "../hooks/custom-visitors/TruthTableMetadataCreator";
-import useTruthStackCreator from "../hooks/custom-listeners/TruthStackCreator";
+import truthTableMetadataCreator from "../antlr-custom/TruthTableMetadataCreator";
+import truthStackCreator from "../antlr-custom/TruthStackCreator";
 import truthValuablePartHelper from "../helpers/TruthValuablePartHelper";
 import truthTableManager from "../TruthTableManager";
-import useTruthTableCreator from "../hooks/TruthTableCreator";
+import truthTableCreator from "../creators/TruthTableCreator";
 import sentenceTruthCalculator from "../truth-calculators/SentenceTruthCalculator";
 import ampersandTruthCalculator from "../truth-calculators/AmpersandTruthCalculator";
 import arrowTruthCalculator from "../truth-calculators/ArrowTruthCalculator";
@@ -15,10 +15,10 @@ import truthTableHelper from "../helpers/TruthTableHelper";
 
 export const defaultDeps = {
     truthTableManager: truthTableManager,
-    useTruthTableMetadataCreator: useTruthTableMetadataCreator,
-    useTruthStackCreator: useTruthStackCreator,
+    truthTableMetadataCreator: truthTableMetadataCreator,
+    truthStackCreator: truthStackCreator,
     truthValuablePartHelper: truthValuablePartHelper,
-    useTruthTableCreator: useTruthTableCreator,
+    truthTableCreator: truthTableCreator,
     truthCalculators: [
         sentenceTruthCalculator,
         ampersandTruthCalculator,

@@ -3,15 +3,21 @@ import PropLogicLexer from '../grammars/PropLogicLexer.js';
 import PropLogicParser from '../grammars/PropLogicParser.js';
 import { defaultDeps } from './context/Dependencies.js';
 
-const useTruthTableManager = services => {
-    const { useTruthTableMetadataCreator = defaultDeps.useTruthTableMetadataCreator, 
-        useTruthStackCreator = defaultDeps.useTruthStackCreator, 
-        useTruthTableCreator = defaultDeps.useTruthTableCreator
+const truthTableManager = services => {
+    const { truthTableMetadataCreator = defaultDeps.truthTableMetadataCreator, 
+        truthStackCreator = defaultDeps.truthStackCreator, 
+        truthTableCreator = defaultDeps.truthTableCreator
     } = services;
 
-    const {create : createMetadata} = useTruthTableMetadataCreator({});
-    const {create : createStack} = useTruthStackCreator({});
-    const {create : createTable} = useTruthTableCreator({});
+    const {create : createTable} = truthTableCreator({});
+    
+    let createMetadata;
+    let createStack;
+
+    const refreshCreators = () => {
+        createMetadata = truthTableMetadataCreator({}).create;
+        createStack = truthStackCreator({}).create;
+    }
 
     const emptyInputMsg = 'Please enter an argument or theory.'
     const errors = [emptyInputMsg];
@@ -55,15 +61,44 @@ const useTruthTableManager = services => {
         },
 
         getTruthTable(input){
-            const tree = parseInput(input);
-            const stack = createStack(tree);
-            const metadata = createMetadata(tree, input);
-            createTable(stack, metadata);
+            let premiseTrees = [];
 
-            console.log(stack);
-            console.log(metadata);
+            input.premises.forEach(premise =>{
+                premiseTrees.push(parseInput(premise))
+            });
+
+            let conclusionTree = parseInput(input.conclusion);
+
+            //const tree = parseInput(input);
+            let manager = {premiseData: []};
+
+            for (let i = 0; i < premiseTrees.length; i++) {
+                refreshCreators();
+
+                manager.premiseData.push({
+                        stack: createStack(premiseTrees[i]), 
+                        metadata: createMetadata(premiseTrees[i], input.premises[i])
+                    }
+                )
+            }
+
+            refreshCreators();
+
+            manager.conclusionData = {
+                stack: createStack(conclusionTree),
+                metadata: createMetadata(conclusionTree, input.conclusion)
+            };
+
+            console.log('manager:', manager);
+
+            // const stack = createStack(tree);
+            // const metadata = createMetadata(tree, input);
+            //createTable(stack, metadata);
+
+            // console.log(stack);
+            // console.log(metadata);
         }
     }
 }
 
-export default useTruthTableManager;
+export default truthTableManager;
