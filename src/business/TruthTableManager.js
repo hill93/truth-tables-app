@@ -10,7 +10,7 @@ const truthTableManager = services => {
     } = services;
 
     const {create : createTable} = truthTableCreator({});
-    
+
     let createMetadata;
     let createStack;
 
@@ -93,7 +93,7 @@ const truthTableManager = services => {
 
             // const stack = createStack(tree);
             // const metadata = createMetadata(tree, input);
-            //createTable(stack, metadata);
+            createTable(manager);
 
             // console.log(stack);
             // console.log(metadata);

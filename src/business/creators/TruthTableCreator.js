@@ -6,14 +6,14 @@ const truthTableCreator = services => {
     const{createUniverseList, createTable} = truthTableHelper({});
     
     return {
-        create(stack, metadata){
-            const universeList = createUniverseList(metadata);
+        create(manager){
+            const universeList = createUniverseList(manager);
 
             console.log(universeList);
             
-            const truthTable = createTable(universeList, stack, metadata);
+           // const truthTable = createTable(universeList, stack, metadata);
 
-            console.log(truthTable);
+            //console.log(truthTable);
         }
     }
 }

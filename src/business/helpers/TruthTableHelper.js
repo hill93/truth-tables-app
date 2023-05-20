@@ -4,7 +4,7 @@ const truthTableHelper = services => {
     const{ lettersGetter = defaultDeps.lettersGetter, 
         truthCalculators = defaultDeps.truthCalculators } = services;
 
-    const{ getLetters } = lettersGetter();
+    const{ getLetters } = lettersGetter({});
     const calculators = truthCalculators.map(x => x({}));
 
     const cleanTruthStack = truthStack => {
@@ -15,8 +15,8 @@ const truthTableHelper = services => {
     }
 
     return {
-        createUniverseList(metadata) {
-            let letters = getLetters(metadata);
+        createUniverseList(manager) {
+            let letters = getLetters(manager);
 
             let noOfUniverses = 2 ** (letters.length);
             let noOfTruths = noOfUniverses / 2;
