@@ -46,7 +46,7 @@ const truthTableHelper = services => {
             })
             return universeList;
         },
-        createTable(universeList, truthStack, metadata){
+        addTablePart(universeList, truthStack, metadata){
             universeList.forEach(x => {
                 for (let i = 0; i < truthStack.length; i++) {
                     const calculator = calculators.find(x => x.canCalculate(truthStack[i].truthValuablePart))
