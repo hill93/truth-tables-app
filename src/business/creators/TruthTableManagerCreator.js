@@ -16,7 +16,7 @@ const truthTableManagerCreator = services => {
 
     const {createTree} = propLogicTreeCreator({addError: addErrorToManager});
 
-    const emptyInputMsg = 'Please enter an argument or theory.'
+    const emptyInputMsg = 'Please enter a conclusion.'
     const errors = [emptyInputMsg];
 
     return {
@@ -29,9 +29,11 @@ const truthTableManagerCreator = services => {
 
             const manager = getManager();
 
-            if (input !== ''){
-                removeErrorFromManager(emptyInputMsg)
+            if(input.conclusion === ''){
+                return manager;
             }
+
+            removeErrorFromManager(emptyInputMsg)
 
             let premiseTrees = [];
 

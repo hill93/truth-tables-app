@@ -1,5 +1,6 @@
 Extract out universelistcreator. Rename TruthTableHelper to TruthTableBuilder
-More functions to extract: parser, parser/lexer error function, calculator creator
+More functions to extract: calculator creator
 Add tests, remove console logs when happy with tests
-IT CURRENTLY CRACKS ON WITH TT CREATION DESPITE ERRORS - STOP IT
+Think about lifecycle of app -> maybe use custom hook useInput to handle initial empty input value and change in values ("new"ing up the manager creator on each change)
+    - what do we want "initial state" to look like? Show no argument error message on load? too aggressive? Maybe another hook - useTouched, which sets to true after a user enters an input, false means erorr doesn't show
 Add UI

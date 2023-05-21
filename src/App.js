@@ -3,7 +3,7 @@ import './App.css';
 import { defaultDeps } from './business/context/Dependencies';
 
 const App = services => {
-    const input = {conclusion: '(((A&B)=>(CvD))<=>(E&(Fv~G)))', premises: []};//'~((B&A)=>(Cv(D<=>E)))';//'~((A&B)<=>~G)';//'(~A&~~B)'//'(~((A&B)<=>~G)=>~((A&B)<=>~G))';
+    const input = {conclusion: /*''*/'(((A&B)=>(CvD))<=>(E&(Fv~G)))', premises: []};//'~((B&A)=>(Cv(D<=>E)))';//'~((A&B)<=>~G)';//'(~A&~~B)'//'(~((A&B)<=>~G)=>~((A&B)<=>~G))';
 
     // const input = {
     //   premises: [

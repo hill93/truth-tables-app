@@ -45,6 +45,7 @@ const truthTableBuilder = services => {
             })
             return universeList;
         },
+        
         addTablePart(universeList, truthStack, metadata){
             universeList.forEach(x => {
                 for (let i = 0; i < truthStack.length; i++) {
