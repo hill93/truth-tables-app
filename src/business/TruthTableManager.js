@@ -6,10 +6,12 @@ import { defaultDeps } from './context/Dependencies.js';
 const truthTableManager = services => {
     const { truthTableMetadataCreator = defaultDeps.truthTableMetadataCreator, 
         truthStackCreator = defaultDeps.truthStackCreator, 
-        truthTableCreator = defaultDeps.truthTableCreator
+        truthTableCreator = defaultDeps.truthTableCreator,
+        truthTableMetadataHelper = defaultDeps.truthTableMetadataHelper
     } = services;
 
     const {create : createTable} = truthTableCreator({});
+    const { addConclusionPrefix, addPremiseSeparator } = truthTableMetadataHelper({});
 
     let createMetadata;
     let createStack;
@@ -69,34 +71,39 @@ const truthTableManager = services => {
 
             let conclusionTree = parseInput(input.conclusion);
 
-            //const tree = parseInput(input);
             let manager = {premiseData: []};
+
+            let premiseMetadata;
 
             for (let i = 0; i < premiseTrees.length; i++) {
                 refreshCreators();
 
+                if (premiseMetadata) {
+                    manager.premiseData[i-1].metadata = addPremiseSeparator(premiseMetadata);
+                }
+
+                premiseMetadata = createMetadata(premiseTrees[i], input.premises[i]);
+
                 manager.premiseData.push({
                         stack: createStack(premiseTrees[i]), 
-                        metadata: createMetadata(premiseTrees[i], input.premises[i])
+                        metadata: premiseMetadata
                     }
                 )
             }
 
             refreshCreators();
 
+            const conclusionMetadata = createMetadata(conclusionTree, input.conclusion);
+
+            addConclusionPrefix(conclusionMetadata);
+
             manager.conclusionData = {
                 stack: createStack(conclusionTree),
-                metadata: createMetadata(conclusionTree, input.conclusion)
+                metadata: conclusionMetadata
             };
 
             console.log('manager:', manager);
-
-            // const stack = createStack(tree);
-            // const metadata = createMetadata(tree, input);
             createTable(manager);
-
-            // console.log(stack);
-            // console.log(metadata);
         }
     }
 }

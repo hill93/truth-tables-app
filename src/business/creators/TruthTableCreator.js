@@ -1,15 +1,13 @@
 import { defaultDeps } from "../context/Dependencies";
 
 const truthTableCreator = services => {
-    const{truthTableHelper = defaultDeps.truthTableHelper} = services;
+    const{truthTableBuilder = defaultDeps.truthTableBuilder} = services;
 
-    const{createUniverseList, addTablePart} = truthTableHelper({});
+    const{createUniverseList, addTablePart} = truthTableBuilder({});
     
     return {
         create(manager){
             const universeList = createUniverseList(manager);
-
-            console.log(universeList);
 
             let truthTable;
 
@@ -20,8 +18,6 @@ const truthTableCreator = services => {
             truthTable = addTablePart(
                 universeList, manager.conclusionData.stack, manager.conclusionData.metadata
             );
-            
-           // const truthTable = createTable(universeList, stack, metadata);
 
             console.log(truthTable);
         }

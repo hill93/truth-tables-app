@@ -6,32 +6,18 @@ const truthTableMetadataCreator = services => {
     let visitedTree = [];
     let order = 1;
 
-    const{truthValuablePartHelper = defaultDeps.truthValuablePartHelper} = services;
+    const{ truthValuablePartHelper = defaultDeps.truthValuablePartHelper,
+        truthTableMetadataHelper = defaultDeps.truthTableMetadataHelper
+    } = services;
+
     const { extractTruthValuablePart, 
         endsWithNonConnectiveTruthValuablePart, 
         endsWithConnective
     } = truthValuablePartHelper({});
 
-    const sortByColumnOrderDesc = (a, b) => {
-        return b.orderOnTable - a.orderOnTable;
-    }
-
-    const sortByColumnOrderAsc = (a, b) => {
-        return a.orderOnTable - b.orderOnTable;
-    }
-
-    const addMissingParentheses = input => {
-        const lastColumn = visitedTree.sort(sortByColumnOrderDesc)[0];
-
-        if (!lastColumn.truthTableHeader.endsWith(')') && input.endsWith(')')){
-            let i = input.length - 1;
-
-            while (input[i] === ')'){
-                lastColumn.truthTableHeader += ')';
-                i--;
-            }
-        }
-    }
+    const { addMissingParentheses,
+        sortByColumnOrderAsc
+    } = truthTableMetadataHelper({});
 
     const visitor = () => {
         return{
@@ -88,7 +74,7 @@ const truthTableMetadataCreator = services => {
     return {
         create(tree, input){
             tree.accept(visitor());
-            addMissingParentheses(input);
+            addMissingParentheses(visitedTree, input);
             return visitedTree.sort(sortByColumnOrderAsc)
         }
     }

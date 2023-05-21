@@ -6,7 +6,9 @@ const SYMBOLS = {
     or: 'v',
     arrow: '=>',
     leftBracket: '(',
-    rightBracket: ')'
+    rightBracket: ')',
+    premiseSeparator: ', ',
+    conclusionPrefix: '⊢ '
 }
 
 export default SYMBOLS;

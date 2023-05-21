@@ -11,7 +11,8 @@ import orTruthCalculator from "../truth-calculators/OrTruthCalculator";
 import negationTruthCalculator from "../truth-calculators/NegationTruthCalculator";
 import sidesGetter from "../truth-calculators/SidesGetter";
 import lettersGetter from "../helpers/LettersGetter";
-import truthTableHelper from "../helpers/TruthTableHelper";
+import truthTableBuilder from "../helpers/TruthTableBuilder";
+import truthTableMetadataHelper from "../helpers/TruthTableMetadataHelper";
 
 export const defaultDeps = {
     truthTableManager: truthTableManager,
@@ -29,5 +30,6 @@ export const defaultDeps = {
     ],
     sidesGetter: sidesGetter,
     lettersGetter: lettersGetter,
-    truthTableHelper: truthTableHelper
+    truthTableBuilder: truthTableBuilder,
+    truthTableMetadataHelper: truthTableMetadataHelper
 }

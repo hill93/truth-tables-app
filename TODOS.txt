@@ -1,5 +1,5 @@
 Extract out universelistcreator. Rename TruthTableHelper to TruthTableBuilder
-More functions to extract: parser, parser/lexer error function
+More functions to extract: parser, parser/lexer error function, calculator creator
 Add tests, remove console logs when happy with tests
 IT CURRENTLY CRACKS ON WITH TT CREATION DESPITE ERRORS - STOP IT
 Add UI

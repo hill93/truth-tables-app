@@ -1,6 +1,6 @@
 import { defaultDeps } from "../context/Dependencies";
 
-const truthTableHelper = services => {
+const truthTableBuilder = services => {
     const{ lettersGetter = defaultDeps.lettersGetter, 
         truthCalculators = defaultDeps.truthCalculators } = services;
 
@@ -41,7 +41,6 @@ const truthTableHelper = services => {
                     rowToUpdate.push({header: x, truthValue: currentTruthValue, showOnTable: true});
                     j++;
                 }
-                console.log(noOfTruths)
                 noOfTruths /= 2;
             })
             return universeList;
@@ -62,8 +61,8 @@ const truthTableHelper = services => {
                     });
                 });
     
-                console.log('truthStack', truthStack);
-                console.log('universe', x);
+                // console.log('truthStack', truthStack);
+                // console.log('universe', x);
     
                 cleanTruthStack(truthStack);
             });
@@ -73,4 +72,4 @@ const truthTableHelper = services => {
     }
 }
 
-export default truthTableHelper;
+export default truthTableBuilder;
