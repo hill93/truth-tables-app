@@ -1,7 +1,7 @@
 import truthTableMetadataCreator from "../antlr-custom/TruthTableMetadataCreator";
 import truthStackCreator from "../antlr-custom/TruthStackCreator";
 import truthValuablePartHelper from "../helpers/TruthValuablePartHelper";
-import truthTableManager from "../TruthTableManager";
+import truthTableManagerCreator from "../creators/TruthTableManagerCreator";
 import truthTableCreator from "../creators/TruthTableCreator";
 import sentenceTruthCalculator from "../truth-calculators/SentenceTruthCalculator";
 import ampersandTruthCalculator from "../truth-calculators/AmpersandTruthCalculator";
@@ -13,9 +13,11 @@ import sidesGetter from "../truth-calculators/SidesGetter";
 import lettersGetter from "../helpers/LettersGetter";
 import truthTableBuilder from "../helpers/TruthTableBuilder";
 import truthTableMetadataHelper from "../helpers/TruthTableMetadataHelper";
+import truthTableManagerBuilder from "../helpers/TruthTableManagerBuilder";
+import propLogicTreeCreator from "../antlr-custom/PropLogicTreeCreator";
 
 export const defaultDeps = {
-    truthTableManager: truthTableManager,
+    truthTableManagerCreator: truthTableManagerCreator,
     truthTableMetadataCreator: truthTableMetadataCreator,
     truthStackCreator: truthStackCreator,
     truthValuablePartHelper: truthValuablePartHelper,
@@ -31,5 +33,7 @@ export const defaultDeps = {
     sidesGetter: sidesGetter,
     lettersGetter: lettersGetter,
     truthTableBuilder: truthTableBuilder,
-    truthTableMetadataHelper: truthTableMetadataHelper
+    truthTableMetadataHelper: truthTableMetadataHelper,
+    truthTableManagerBuilder: truthTableManagerBuilder,
+    propLogicTreeCreator: propLogicTreeCreator
 }

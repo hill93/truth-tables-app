@@ -7,16 +7,14 @@ const truthTableCreator = services => {
     
     return {
         create(manager){
-            const universeList = createUniverseList(manager);
-
-            let truthTable;
+            let truthTable = createUniverseList(manager);
 
             manager.premiseData.forEach(data => {
-                truthTable = addTablePart(universeList, data.stack, data.metadata);
+                truthTable = addTablePart(truthTable, data.stack, data.metadata);
             });
 
             truthTable = addTablePart(
-                universeList, manager.conclusionData.stack, manager.conclusionData.metadata
+                truthTable, manager.conclusionData.stack, manager.conclusionData.metadata
             );
 
             console.log(truthTable);

@@ -14,11 +14,11 @@ const App = services => {
       conclusion: 'G'
     }
 
-    const {truthTableManager = defaultDeps.truthTableManager} =  services;
+    const {truthTableManagerCreator = defaultDeps.truthTableManagerCreator} =  services;
 
-    const {getTruthTable, printErrors} = truthTableManager({});
+    const {createManager, printErrors} = truthTableManagerCreator({});
 
-    getTruthTable(input);
+    createManager(input);
     printErrors();
 
   return (
