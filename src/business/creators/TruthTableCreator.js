@@ -18,6 +18,8 @@ const truthTableCreator = services => {
             );
 
             console.log(truthTable);
+
+            return truthTable;
         }
     }
 }

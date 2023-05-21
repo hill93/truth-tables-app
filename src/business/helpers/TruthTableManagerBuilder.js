@@ -60,7 +60,7 @@ const truthTableManagerBuilder = services => {
         },
 
         addTruthTableToManager() {
-            createTable(manager);
+            manager.table = createTable(manager);
         },
 
         getManager() {

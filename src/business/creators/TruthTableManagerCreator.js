@@ -46,8 +46,9 @@ const truthTableManagerCreator = services => {
                 addConclusionDataToManager(conclusionTree, input)
                 addTruthTableToManager();
             }
-            
+
             console.log('manager:', manager);
+            return manager;
         }
     }
 }
