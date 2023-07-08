@@ -20,10 +20,6 @@ const truthTableManagerCreator = services => {
     const errors = [emptyInputMsg];
 
     return {
-        printErrors(){
-            errors.forEach(x => console.log(`Error: ${x}`))
-        },
-
         createManager(input){
             initialiseManager(errors);
 

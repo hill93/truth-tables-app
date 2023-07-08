@@ -38,7 +38,7 @@ const truthTableBuilder = services => {
                         rowToUpdate = universeList[i];
                     }
 
-                    rowToUpdate.push({header: x, truthValue: currentTruthValue, showOnTable: true});
+                    rowToUpdate.push({header: x, truthValue: currentTruthValue, isDetachedLetter: true});
                     j++;
                 }
                 noOfTruths /= 2;
@@ -58,7 +58,7 @@ const truthTableBuilder = services => {
                     x.push({
                         header: y.truthTableHeader, 
                         truthValue: truthStack.find(z => z.text === y.text).truthValue, 
-                        showOnTable: false
+                        isDetachedLetter: false
                     });
                 });
     
