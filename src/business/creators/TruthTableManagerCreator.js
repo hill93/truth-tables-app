@@ -26,6 +26,7 @@ const truthTableManagerCreator = services => {
             const manager = getManager();
 
             if(input.conclusion === ''){
+                console.log('no conclusion!!!')
                 return manager;
             }
 

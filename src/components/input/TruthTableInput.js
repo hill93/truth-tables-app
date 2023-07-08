@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PremiseInput from './PremiseInput';
 
-const TruthTableInput = () => {
+const TruthTableInput = ({ initialiseManager }) => {
   const [truthTableInput, setTruthTableInput] = useState({
     premises:[],
     conclusion:''
@@ -36,8 +36,7 @@ const TruthTableInput = () => {
   };
 
   const handleCreateClick = () => {
-    console.log('Create button clicked');
-    console.log(truthTableInput);
+    initialiseManager(truthTableInput);
   };
 
   const premiseComponents = [];

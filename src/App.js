@@ -1,29 +1,17 @@
 import './App.css';
-import { defaultDeps } from './business/context/Dependencies';
+import React from 'react';
 import TruthTableInput from './components/input/TruthTableInput';
+import useTruthTableManager from './business/hooks/UseTruthTableManager';
+import ErrorList from './components/error/ErrorList';
 
-const App = services => {
-    const input = {conclusion: /*''*/'(((A&B)=>(CvD))<=>(E&(Fv~G)))', premises: []};//'~((B&A)=>(Cv(D<=>E)))';//'~((A&B)<=>~G)';//'(~A&~~B)'//'(~((A&B)<=>~G)=>~((A&B)<=>~G))';
-
-    // const input = {
-    //   premises: [
-    //     '(A=>B)',
-    //     '(AvC)',
-    //     'D'
-    //   ],
-    //   conclusion: 'G'
-    // }
-
-    const {truthTableManagerCreator = defaultDeps.truthTableManagerCreator} =  services;
-
-    const {createManager} = truthTableManagerCreator({});
-
-    const manager = createManager(input);
+const App = () => {
+  const {truthTableManager, initialiseManager} = useTruthTableManager({});
 
   return (
     <div className="App">
       <h1>Truth Table Generator</h1>
-      <TruthTableInput/>
+      <TruthTableInput initialiseManager = {initialiseManager}/>
+      <ErrorList errors={truthTableManager.errors}/>
     </div>
   );
 }
