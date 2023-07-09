@@ -10,11 +10,11 @@ const truthTableCreator = services => {
             let truthTable = createUniverseList(manager);
 
             manager.premiseData.forEach(data => {
-                truthTable = addTablePart(truthTable, data.stack, data.metadata);
+                truthTable = addTablePart(truthTable, data.stack, data.metadata, 'Premise');
             });
 
             truthTable = addTablePart(
-                truthTable, manager.conclusionData.stack, manager.conclusionData.metadata
+                truthTable, manager.conclusionData.stack, manager.conclusionData.metadata, 'Conclusion'
             );
 
             console.log(truthTable);

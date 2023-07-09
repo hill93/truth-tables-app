@@ -38,7 +38,7 @@ const truthTableBuilder = services => {
                         rowToUpdate = universeList[i];
                     }
 
-                    rowToUpdate.push({header: x, truthValue: currentTruthValue, isDetachedLetter: true});
+                    rowToUpdate.push({header: x, truthValue: currentTruthValue, partType: 'DetachedLetter'});
                     j++;
                 }
                 noOfTruths /= 2;
@@ -46,7 +46,7 @@ const truthTableBuilder = services => {
             return universeList;
         },
         
-        addTablePart(universeList, truthStack, metadata){
+        addTablePart(universeList, truthStack, metadata, type){
             universeList.forEach(x => {
                 for (let i = 0; i < truthStack.length; i++) {
                     const calculator = calculators.find(x => x.canCalculate(truthStack[i].truthValuablePart))
@@ -58,12 +58,10 @@ const truthTableBuilder = services => {
                     x.push({
                         header: y.truthTableHeader, 
                         truthValue: truthStack.find(z => z.text === y.text).truthValue, 
-                        isDetachedLetter: false
+                        partType: type,
+                        userInput: ''
                     });
                 });
-    
-                // console.log('truthStack', truthStack);
-                // console.log('universe', x);
     
                 cleanTruthStack(truthStack);
             });

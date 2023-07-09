@@ -12,7 +12,26 @@ const useTruthTableManager = services => {
         setTruthTableManager(createManager(input));
     }
 
-    return {truthTableManager, initialiseManager};
+    const userInputUpdaterFactory = (i, j) => {
+        return e => {
+            truthTableManager.table[i][j].userInput = e.target.value;
+            setTruthTableManager(truthTableManager);
+            console.log(truthTableManager);
+        }
+    }
+
+    const checkRowInputCorrect = i => {
+        console.log('checking row')
+        return truthTableManager.table[i].reduce(
+            (acc, curr) => acc && curr.userInput === (curr.truthValue ? 'T' : 'F')
+        ,true)
+    }
+
+    const checkRowInputFilled = i => {
+        return !truthTableManager.table[i].some(x => x.userInput === '');
+    }
+
+    return {truthTableManager, initialiseManager, userInputUpdaterFactory, checkRowInputCorrect};
 }
 
 export default useTruthTableManager;

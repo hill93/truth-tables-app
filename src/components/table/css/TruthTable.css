@@ -8,3 +8,7 @@
   border: 1px solid #ddd;
   padding: 8px;
 }
+
+.truthTableEditableCell {
+  width: 9px;
+}

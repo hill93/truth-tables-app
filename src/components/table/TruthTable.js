@@ -1,6 +1,7 @@
+import TruthTableRow from './TruthTableRow';
 import './css/TruthTable.css'
 
-const TruthTable = ({ truthTableArr }) => {
+const TruthTable = ({ truthTableArr, userInputUpdaterFactory }) => {
     return (
         <table className="truthTable">
             <thead>
@@ -15,13 +16,12 @@ const TruthTable = ({ truthTableArr }) => {
             <tbody>
                 {
                     truthTableArr.map((tableRow, i) => 
-                        <tr key={i}>
-                            {
-                                tableRow.map((tableItem, j) => 
-                                    <td key={j}>{tableItem.truthValue ? 'T' : 'F'}</td>
-                                )
-                            }
-                        </tr>
+                        <TruthTableRow 
+                            userInputUpdaterFactory = {userInputUpdaterFactory} 
+                            i={i}
+                            key={i} 
+                            tableRow={tableRow}
+                        />
                     )
                 }       
             </tbody>
