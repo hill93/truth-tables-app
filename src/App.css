@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+
+.buttonSpacing {
+  margin-right: 5px;
+}
+
+button,input {
+  margin: 3px 0 3px;
+}

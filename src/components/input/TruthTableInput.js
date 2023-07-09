@@ -1,3 +1,5 @@
+import '../../App.css';
+import './css/TruthTableInput.css';
 import React, { useState } from 'react';
 import PremiseInput from './PremiseInput';
 
@@ -48,19 +50,23 @@ const TruthTableInput = ({ initialiseManager }) => {
   }
 
   return (
-    <div>
-    <button onClick={handleAddPremiseClick}>Add Premise</button>
-    <button onClick={handleRemovePremiseClick}>Remove Premise</button>
+    <div className='truthTableInput'>
+      <div className='truthTableButtons'>
+        <button onClick={handleAddPremiseClick} className='buttonSpacing'>Add Premise</button>
+        <button onClick={handleRemovePremiseClick}>Remove Premise</button>
+      </div>
       {premiseComponents}
       <div>
-        <label htmlFor="input">Conclusion:</label>
+        <label htmlFor="input" style={{'paddingRight': '4px'}}>Conclusion:</label>
         <input
           type="text"
           id="input"
           onChange={handleConclusionChange}
         />
       </div>
-      <button onClick={handleCreateClick}>Create</button>
+      <div className='truthTableButtons'>
+        <button onClick={handleCreateClick}>Create</button>
+      </div>
     </div>
   );
 };

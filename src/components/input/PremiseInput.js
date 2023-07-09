@@ -1,9 +1,10 @@
+import './css/TruthTableInput.css'
 import React from 'react';
 
 const PremiseInput = ({premiseNo, handleInputChange}) => {
   return (
-    <div>
-      <label htmlFor="input">Premise {premiseNo}:</label>
+    <div className='sentenceInputs'>
+      <label htmlFor="input" style={{'paddingRight': '4px'}}>Premise {premiseNo}:</label>
       <input
         type="text"
         id="input"

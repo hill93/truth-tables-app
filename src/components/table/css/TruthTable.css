@@ -1,0 +1,10 @@
+.truthTable {
+  margin-left: auto;
+  margin-right: auto;
+  border-collapse: collapse;
+}
+
+.truthTable td, .truthTable th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
