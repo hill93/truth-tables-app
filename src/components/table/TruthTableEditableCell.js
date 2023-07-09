@@ -1,12 +1,12 @@
 import './css/TruthTable.css';
 
-const TruthTableEditableCell = ({ userInputUpdater, j, tableItem}) => {
+const TruthTableEditableCell = ({ tableUpdater, j, tableItem}) => {
     return (
         <td key={j}>
             <input
                 type="text"
                 id="input"
-                onChange={userInputUpdater}
+                onChange={tableUpdater}
                 className='truthTableEditableCell'
             />
         </td>

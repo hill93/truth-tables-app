@@ -1,13 +1,13 @@
 import DetachedLetterCell from "./DetachedLetterCell";
 import TruthTableEditableCell from "./TruthTableEditableCell";
 
-const truthTableCellFactory = ({userInputUpdater, j, tableItem}) => {
+const truthTableCellFactory = ({tableUpdater, j, tableItem}) => {
     if (tableItem.partType === 'DetachedLetter'){
         return <DetachedLetterCell key = {j} tableItem={tableItem}/>
     }
 
     return <TruthTableEditableCell 
-                userInputUpdater={userInputUpdater} 
+                tableUpdater={tableUpdater} 
                 key={j} 
                 tableItem={tableItem}
             />;

@@ -1,34 +1,28 @@
-import { useState } from 'react';
 import truthTableCellFactory from './TruthTableCellFactory';
+import useRowInput from '../../business/hooks/UseRowInput';
 
 const TruthTableRow = ({userInputUpdaterFactory, i, tableRow}) => {
-    // const rowInputCorrect = tableRow.reduce(
-    //     (acc, curr) => acc && curr.userInput === (curr.truthValue ? 'T' : 'F')
-    // ,true)
-
-    const [rowInputCorrect, setRowInputCorrect] = useState(false);
-
-    console.log('table row rendered')
+    const {rowInputFilled, rowInputCorrect, updateRowInputFilled, updateRowInputCorrect} = useRowInput();
 
     return (
         <tr>
             {
                 tableRow.map((tableItem, j) => {
-                    const userInputUpdater = input => {
-                        userInputUpdaterFactory(i,j)(input);
-                        console.log(`tableRow`, tableRow);
-                        console.log(`rowInputCorrect`, rowInputCorrect);
-                        setRowInputCorrect(
-                            tableRow.reduce(
-                                (acc, curr) => acc && curr.userInput === (curr.truthValue ? 'T' : 'F')
-                            ,true)
-                        );
+                    const userInputUpdater = userInputUpdaterFactory(i,j);
+
+                    const tableUpdater = input => {
+                        userInputUpdater(input);
+                        updateRowInputCorrect(tableRow);
+                        updateRowInputFilled(tableRow);
                     };
     
-                    return truthTableCellFactory({userInputUpdater, j, tableItem});
+                    return truthTableCellFactory({tableUpdater, j, tableItem});
                 })
             }
-            <td>{rowInputCorrect ? 'CORRECT!' : 'NOPE'}</td>
+            {rowInputFilled ? 
+                <td>
+                    {rowInputCorrect ? 'CORRECT!' : 'NOPE'}
+                </td> : null}
         </tr>
     )
 }
