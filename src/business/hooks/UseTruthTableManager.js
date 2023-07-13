@@ -9,7 +9,12 @@ const useTruthTableManager = services => {
     const {createManager} = truthTableManagerCreator({});
 
     const initialiseManager = input => {
+        setTruthTableManager({});
         setTruthTableManager(createManager(input));
+    }
+
+    const resetManager = () => {
+        setTruthTableManager({});
     }
 
     const userInputUpdaterFactory = (i, j) => {
@@ -31,7 +36,7 @@ const useTruthTableManager = services => {
         return !truthTableManager.table[i].some(x => x.userInput === '');
     }
 
-    return {truthTableManager, initialiseManager, userInputUpdaterFactory, checkRowInputCorrect};
+    return {truthTableManager, initialiseManager, userInputUpdaterFactory, checkRowInputCorrect, resetManager};
 }
 
 export default useTruthTableManager;
