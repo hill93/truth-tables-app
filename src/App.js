@@ -10,19 +10,21 @@ const App = () => {
     truthTableManager, 
     initialiseManager, 
     userInputUpdaterFactory, 
-    resetManager
+    checkRowInputFilled,
+    checkRowInputCorrect
   } = useTruthTableManager({});
 
   return (
     <div className="App">
       <h1>Truth Table Generator</h1>
       <TruthTableInput initialiseManager = {initialiseManager}/>
-      <button onClick={resetManager}>Reset</button>
       <ErrorList errors={truthTableManager.errors}/>
       { truthTableManager.table ? 
         <TruthTable 
           truthTableArr={truthTableManager.table} 
           userInputUpdaterFactory={userInputUpdaterFactory}
+          checkRowInputFilled={checkRowInputFilled}
+          checkRowInputCorrect={checkRowInputCorrect}
         /> : null }
     </div>
   );

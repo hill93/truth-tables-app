@@ -1,7 +1,8 @@
 import TruthTableRow from './TruthTableRow';
 import './css/TruthTable.css'
 
-const TruthTable = ({ truthTableArr, userInputUpdaterFactory }) => {
+const TruthTable = ({ truthTableArr, userInputUpdaterFactory, checkRowInputFilled, checkRowInputCorrect }) => {
+    console.log('truth table rendering!!')
     return (
         <table className="truthTable">
             <thead>
@@ -21,6 +22,8 @@ const TruthTable = ({ truthTableArr, userInputUpdaterFactory }) => {
                             i={i}
                             key={i} 
                             tableRow={tableRow}
+                            checkRowInputFilled={checkRowInputFilled}
+                            checkRowInputCorrect={checkRowInputCorrect}
                         />
                     )
                 }       

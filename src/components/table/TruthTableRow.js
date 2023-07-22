@@ -1,27 +1,20 @@
 import truthTableCellFactory from './TruthTableCellFactory';
-import useRowInput from '../../business/hooks/UseRowInput';
 
-const TruthTableRow = ({userInputUpdaterFactory, i, tableRow}) => {
-    const {rowInputFilled, rowInputCorrect, updateRowInputFilled, updateRowInputCorrect} = useRowInput();
+const TruthTableRow = ({userInputUpdaterFactory, i, tableRow, checkRowInputCorrect, checkRowInputFilled}) => {
+    console.log(`truth row ${i} rendered`);
 
     return (
         <tr>
             {
                 tableRow.map((tableItem, j) => {
-                    const userInputUpdater = userInputUpdaterFactory(i,j);
-
-                    const tableUpdater = input => {
-                        userInputUpdater(input);
-                        updateRowInputCorrect(tableRow);
-                        updateRowInputFilled(tableRow);
-                    };
+                    const updateInput = userInputUpdaterFactory(i,j);
     
-                    return truthTableCellFactory({tableUpdater, j, tableItem});
+                    return truthTableCellFactory({updateInput, j, tableItem});
                 })
             }
-            {rowInputFilled ? 
+            {checkRowInputFilled(i) ? 
                 <td>
-                    {rowInputCorrect ? 'CORRECT!' : 'NOPE'}
+                    {checkRowInputCorrect(i) ? 'CORRECT!' : 'NOPE'}
                 </td> : null}
         </tr>
     )

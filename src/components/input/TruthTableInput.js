@@ -19,7 +19,7 @@ const TruthTableInput = ({ initialiseManager }) => {
   const handlePremiseChange = (i) => {
     return (e) => {
       truthTableInput.premises[i] = e.target.value;
-      setTruthTableInput(truthTableInput);
+      setTruthTableInput({...truthTableInput});
     }
   }
 
