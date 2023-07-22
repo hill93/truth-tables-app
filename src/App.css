@@ -44,3 +44,8 @@
 button,input {
   margin: 3px 0 3px;
 }
+
+html {
+  background-color: cadetblue;
+  color: white;
+}
