@@ -9,6 +9,11 @@
   padding: 8px;
 }
 
+.truthTable tr.incorrectRow td {
+  background-color: #ff8080;
+  padding: 8px;
+}
+
 .truthTableEditableCell {
   width: 9px;
 }

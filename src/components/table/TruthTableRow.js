@@ -1,10 +1,15 @@
 import truthTableCellFactory from './TruthTableCellFactory';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCheck, faXmark } from '@fortawesome/free-solid-svg-icons'
 
 const TruthTableRow = ({userInputUpdaterFactory, i, tableRow, checkRowInputCorrect, checkRowInputFilled}) => {
     console.log(`truth row ${i} rendered`);
 
     return (
-        <tr>
+        <tr className={
+            !checkRowInputFilled(i) || checkRowInputCorrect(i) ? '' 
+                : 'incorrectRow'
+        }>
             {
                 tableRow.map((tableItem, j) => {
                     const updateInput = userInputUpdaterFactory(i,j);
@@ -14,8 +19,13 @@ const TruthTableRow = ({userInputUpdaterFactory, i, tableRow, checkRowInputCorre
             }
             {checkRowInputFilled(i) ? 
                 <td>
-                    {checkRowInputCorrect(i) ? 'CORRECT!' : 'NOPE'}
-                </td> : null}
+                    {<FontAwesomeIcon 
+                        icon={checkRowInputCorrect(i) ? faCheck : faXmark} 
+                        style={{'color': checkRowInputCorrect(i) ? 'lightgreen' : 'red'}}
+                    />}
+            
+                </td> 
+                : null}
         </tr>
     )
 }
