@@ -63,6 +63,18 @@ const truthTableManagerBuilder = services => {
             manager.table = createTable(manager);
         },
 
+        addValidityToManager() {
+            manager.validity = !manager.table.some(
+                row => row.filter(x => x.partType === 'Premise').every(x => x.truthValue)
+                    && row.filter(x => x.partType === 'Conclusion').every(x => !x.truthValue)
+            );
+
+            console.log('validity', !manager.table.some(
+                row => row.filter(x => x.partType === 'Premise').every(x => x.truthValue)
+                    && row.filter(x => x.partType === 'Conclusion').every(x => !x.truthValue)
+            ))
+        },
+
         getManager() {
             return manager;
         },

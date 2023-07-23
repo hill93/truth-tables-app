@@ -11,7 +11,8 @@ const truthTableManagerCreator = services => {
         addTruthTableToManager,
         addErrorToManager,
         removeErrorFromManager,
-        getManager
+        getManager,
+        addValidityToManager
     } = truthTableManagerBuilder({});
 
     const {createTree} = propLogicTreeCreator({addError: addErrorToManager});
@@ -41,9 +42,10 @@ const truthTableManagerCreator = services => {
             let conclusionTree = createTree(input.conclusion);
 
             if(manager.errors.length === 0){
-                addPremiseDataToManager(premiseTrees, input)
-                addConclusionDataToManager(conclusionTree, input)
+                addPremiseDataToManager(premiseTrees, input);
+                addConclusionDataToManager(conclusionTree, input);
                 addTruthTableToManager();
+                addValidityToManager();
             }
 
             console.log('manager:', manager);
