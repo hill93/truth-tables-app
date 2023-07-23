@@ -5,13 +5,12 @@ import PropLogicParser from '../../grammars/PropLogicParser.js';
 const propLogicTreeCreator = services => {
     const{addError} = services;
 
-    const addTheError = (recognizer, offendingSymbol, line, column, msg, err) => {
-        console.log(`${offendingSymbol} line ${line}, col ${column}: ${msg}`);
-        addError(`${offendingSymbol} line ${line}, col ${column}: ${msg}`);
-    }
-
     return {
         createTree(input) {
+            const addTheError = (recognizer, offendingSymbol, line, column, msg, err) => {
+                addError(offendingSymbol, line, column, msg, input);
+            };
+
             const chars = new InputStream(input);
     
             const lexer = new PropLogicLexer(chars);

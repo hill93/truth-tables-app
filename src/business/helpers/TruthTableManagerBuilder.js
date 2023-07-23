@@ -76,8 +76,14 @@ const truthTableManagerBuilder = services => {
             return manager;
         },
 
-        addErrorToManager(errorMsg) {
-            manager.errors.push(errorMsg)
+        addErrorToManager(offendingSymbol, line, column, msg, input) {
+            manager.errors.push({
+                offendingSymbol,
+                line,
+                column,
+                msg,
+                input
+            })
         },
 
         removeErrorFromManager(errorMsg) {
