@@ -18,7 +18,7 @@ const App = () => {
     <div className="App">
       <h1>Truth Table Generator</h1>
       <TruthTableInput initialiseManager = {initialiseManager}/>
-      <ErrorList errors={truthTableManager.errors}/>
+      { truthTableManager.errors.length > 0 ? <ErrorList errors={truthTableManager.errors}/> : null }
       { truthTableManager.table ? 
         <TruthTable 
           truthTableManager={truthTableManager} 
