@@ -8,7 +8,6 @@ const truthTableCellFactory = ({updateInput, j, tableItem}) => {
 
     return <TruthTableEditableCell 
                 updateInput={updateInput} 
-                j={j}
                 tableItem={tableItem}
                 key={j} 
             />;

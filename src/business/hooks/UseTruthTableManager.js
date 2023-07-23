@@ -28,7 +28,8 @@ const useTruthTableManager = services => {
     }
 
     const checkRowInputFilled = i => {
-        return !truthTableManager.table[i].some(x => x.userInput === '');
+        return !truthTableManager.table[i].filter(x => x.partType !== 'DetachedLetter')
+            .some(x => x.userInput === '');
     }
 
     return {truthTableManager, initialiseManager, userInputUpdaterFactory, checkRowInputCorrect, checkRowInputFilled};
