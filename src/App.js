@@ -21,7 +21,7 @@ const App = () => {
       <ErrorList errors={truthTableManager.errors}/>
       { truthTableManager.table ? 
         <TruthTable 
-          truthTableArr={truthTableManager.table} 
+          truthTableManager={truthTableManager} 
           userInputUpdaterFactory={userInputUpdaterFactory}
           checkRowInputFilled={checkRowInputFilled}
           checkRowInputCorrect={checkRowInputCorrect}

@@ -52,6 +52,8 @@ const truthTableBuilder = services => {
                     const calculator = calculators.find(x => x.canCalculate(truthStack[i].truthValuablePart))
     
                     truthStack[i].truthValue = calculator.calculate(i, truthStack, x);
+
+                    truthStack[i].mainConnective = i === truthStack.length - 1;
                 }
     
                 metadata.forEach(y => {
@@ -59,6 +61,7 @@ const truthTableBuilder = services => {
                         header: y.truthTableHeader, 
                         truthValue: truthStack.find(z => z.text === y.text).truthValue, 
                         partType: type,
+                        mainConnective: truthStack.find(z => z.text === y.text).mainConnective,
                         userInput: ''
                     });
                 });
